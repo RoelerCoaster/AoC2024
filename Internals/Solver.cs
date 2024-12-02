@@ -7,15 +7,15 @@ namespace RoelerCoaster.AdventOfCode.Year2024.Internals;
 
 internal class Solver
 {
-    private readonly InputReader _inputReader;
+    private readonly InputLoader _inputReader;
     private readonly DayResolver _dayResolver;
     private readonly int _year;
 
-    public Solver(int year)
+    public Solver(int year, InputLoader inputReader, DayResolver dayResolver)
     {
-        _inputReader = new InputReader();
-        _dayResolver = new DayResolver();
         _year = year;
+        _inputReader = inputReader;
+        _dayResolver = dayResolver;
     }
 
     public async Task Run(int? day)
@@ -43,7 +43,7 @@ internal class Solver
         AnsiConsole.WriteLine();
 
         AnsiConsole.WriteLine("Reading input.");
-        var input = await _inputReader.GetInputForDay(day.Day, day.UseTestInput);
+        var input = await _inputReader.GetInputForDay(_year, day.Day, day.UseTestInput);
         AnsiConsole.WriteLine();
 
         var table = new Table()

@@ -3,9 +3,16 @@
 namespace RoelerCoaster.AdventOfCode.Year2024.Internals;
 internal class DayResolver
 {
+    private readonly IEnumerable<DayBase> _days;
+
+    public DayResolver(IEnumerable<DayBase> days)
+    {
+        _days = days;
+    }
+
     public DayBase GetLatest()
     {
-        var d = AllDays()
+        var d = _days
                 .OrderByDescending(d => d.Day)
                 .FirstOrDefault(d => d.IsActive);
 
@@ -14,20 +21,8 @@ internal class DayResolver
 
     public DayBase Get(int day)
     {
-        var d = AllDays().FirstOrDefault(d => d.Day == day);
+        var d = _days.FirstOrDefault(d => d.Day == day);
 
         return d ?? throw new InvalidOperationException($"Implementation for day {day} not found.");
-    }
-
-    private List<DayBase> AllDays()
-    {
-        return GetType()
-                .Assembly
-                .GetTypes()
-                .Where(t => t.IsAssignableTo(typeof(DayBase)) && !t.IsAbstract)
-                .Select(Activator.CreateInstance)
-                .Where(o => o != null)
-                .Cast<DayBase>()
-                .ToList();
     }
 }

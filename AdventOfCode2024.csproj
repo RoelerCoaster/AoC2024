@@ -9,10 +9,15 @@
 		<RootNamespace>RoelerCoaster.AdventOfCode.Year2024</RootNamespace>
 		<Authors>RoelerCoaster</Authors>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<UserSecretsId>a9f3bc12-581a-41d5-a485-96e31122b030</UserSecretsId>
 	</PropertyGroup>
 
 	<ItemGroup>
 	  <PackageReference Include="C5" Version="3.0.0" />
+	  <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="9.0.0" />
+	  <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.0" />
+	  <PackageReference Include="Microsoft.Extensions.Http" Version="9.0.0" />
+	  <PackageReference Include="Microsoft.Net.Http.Headers" Version="9.0.0" />
 	  <PackageReference Include="morelinq" Version="4.3.0" />
 	  <PackageReference Include="QuikGraph" Version="2.5.0" />
 	  <PackageReference Include="QuikGraph.Graphviz" Version="2.5.0" />
