@@ -1,4 +1,6 @@
-﻿namespace RoelerCoaster.AdventOfCode.Year2024.Util;
+﻿using RoelerCoaster.AdventOfCode.Year2024.Util.Model;
+
+namespace RoelerCoaster.AdventOfCode.Year2024.Util;
 internal static class JaggedArrayGridExtensions
 {
     public static T[][] CreateCopy<T>(this T[][] grid)
@@ -31,5 +33,26 @@ internal static class JaggedArrayGridExtensions
         }
 
         return transposed;
+    }
+
+    public static IEnumerable<GridCoordinate> FindAll<T>(this T[][] grid, Func<T, bool> predicate)
+    {
+        for (var r = 0; r < grid.Length; r++)
+        {
+            for (var c = 0; c < grid[r].Length; c++)
+            {
+                if (predicate(grid[r][c]))
+                {
+                    yield return new(r, c);
+                }
+            }
+        }
+
+    }
+
+    public static GridCoordinate FindFirst<T>(this T[][] grid, Func<T, bool> predicate)
+    {
+        return grid.FindAll(predicate).First();
+
     }
 }

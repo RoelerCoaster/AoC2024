@@ -12,6 +12,11 @@ internal static class GridCoordinateExtensions
             CardinalDirection.West => current with { Col = current.Col - offset },
             CardinalDirection.East => current with { Col = current.Col + offset },
             _ => throw new NotSupportedException()
-        }; ;
+        };
+    }
+
+    public static bool IsInsideGrid<TGrid>(this GridCoordinate coord, TGrid[][] grid)
+    {
+        return coord.Row >= 0 && coord.Col >= 0 && coord.Row < grid.Length && coord.Col < grid.Length;
     }
 }
