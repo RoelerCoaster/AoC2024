@@ -53,6 +53,17 @@ internal static class JaggedArrayGridExtensions
     public static GridCoordinate FindFirst<T>(this T[][] grid, Func<T, bool> predicate)
     {
         return grid.FindAll(predicate).First();
+    }
+
+    public static void ForEachGridElement<T>(this T[][] grid, Action<T, int, int> action)
+    {
+        for (var r = 0; r < grid.Length; r++)
+        {
+            for (var c = 0; c < grid[r].Length; c++)
+            {
+                action(grid[r][c], r, c);
+            }
+        }
 
     }
 }
