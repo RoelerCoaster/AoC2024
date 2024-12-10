@@ -66,4 +66,9 @@ internal static class JaggedArrayGridExtensions
         }
 
     }
+
+    public static T Get<T>(this T[][] grid, GridCoordinate position)
+    {
+        return grid[position.Row][position.Col];
+    }
 }

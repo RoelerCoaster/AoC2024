@@ -1,5 +1,5 @@
 ﻿namespace RoelerCoaster.AdventOfCode.Year2024.Util;
-internal static class ResursionUtil
+public static class ResursionUtil
 {
 
     public static Func<TArg, TResult> Memoize<TArg, TResult>(Func<Func<TArg, TResult>, TArg, TResult> implementation, EqualityComparer<TArg>? equalityComparer = null)

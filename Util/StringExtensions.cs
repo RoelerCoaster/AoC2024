@@ -64,6 +64,11 @@ public static class StringExtensions
         return s.Lines().Select(l => l.ToCharArray()).ToArray();
     }
 
+    public static int[][] DigitGrid(this string s)
+    {
+        return s.Lines().Select(l => l.Digits()).ToArray();
+    }
+
     /// <summary>
     /// Splits the string right before the given index. This means s[index] will be the 
     /// first character of the Right result;
