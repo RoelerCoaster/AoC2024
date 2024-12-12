@@ -64,11 +64,20 @@ internal static class JaggedArrayGridExtensions
                 action(grid[r][c], r, c);
             }
         }
+    }
 
+    public static void ForEachGridElement<T>(this T[][] grid, Action<T, GridCoordinate> action)
+    {
+        grid.ForEachGridElement((el, r, c) => action(el, new(r, c)));
     }
 
     public static T Get<T>(this T[][] grid, GridCoordinate position)
     {
         return grid[position.Row][position.Col];
+    }
+
+    public static void Set<T>(this T[][] grid, GridCoordinate position, T value)
+    {
+        grid[position.Row][position.Col] = value;
     }
 }

@@ -38,7 +38,7 @@ public static class StringExtensions
 
     public static int[] Digits(this string s)
     {
-        return s.Select(s => s.ToString().ToNumber<int>()).ToArray();
+        return s.Select(c => c.ToString().ToNumber<int>()).ToArray();
     }
 
     public static TNumber[] NumbersBySeparator<TNumber>(this string s, string separator)
@@ -62,6 +62,11 @@ public static class StringExtensions
     public static char[][] Grid(this string s)
     {
         return s.Lines().Select(l => l.ToCharArray()).ToArray();
+    }
+
+    public static T[][] CustomGrid<T>(this string s, Func<char, T> transformer)
+    {
+        return s.Lines().Select(l => l.Select(transformer).ToArray()).ToArray();
     }
 
     public static int[][] DigitGrid(this string s)
