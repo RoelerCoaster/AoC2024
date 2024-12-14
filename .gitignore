@@ -364,3 +364,6 @@ FodyWeavers.xsd
 
 # Ignore inputs
 Inputs/**/*.txt
+
+# Outputs
+Outputs
