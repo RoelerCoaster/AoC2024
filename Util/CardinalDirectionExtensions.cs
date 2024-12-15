@@ -40,4 +40,6 @@ internal static class CardinalDirectionExtensions
         };
     }
 
+    public static bool IsHorizontal(this CardinalDirection direction) => direction.IsIn(CardinalDirection.West, CardinalDirection.East);
+    public static bool IsVertical(this CardinalDirection direction) => direction.IsIn(CardinalDirection.North, CardinalDirection.South);
 }
