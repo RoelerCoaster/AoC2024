@@ -19,4 +19,9 @@ internal static class GridCoordinateExtensions
     {
         return coord.Row >= 0 && coord.Col >= 0 && coord.Row < grid.Length && coord.Col < grid.Length;
     }
+
+    public static int ManhattanDistance(this GridCoordinate source, GridCoordinate target)
+    {
+        return Math.Abs(source.Row - target.Row) + Math.Abs(source.Col - target.Col);
+    }
 }
