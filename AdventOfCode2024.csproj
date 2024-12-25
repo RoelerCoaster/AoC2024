@@ -26,11 +26,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <EditorConfigFiles Remove="P:\Dev\Playground\AdventOfCode2024\.editorconfig" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <None Include="P:\Dev\Playground\AdventOfCode2024\.editorconfig" />
+	  <EditorConfigFiles Include=".editorconfig" />
 	</ItemGroup>
 
 </Project>
