@@ -17,7 +17,7 @@ internal static class GridCoordinateExtensions
 
     public static bool IsInsideGrid<TGrid>(this GridCoordinate coord, TGrid[][] grid)
     {
-        return coord.Row >= 0 && coord.Col >= 0 && coord.Row < grid.Length && coord.Col < grid.Length;
+        return coord.Row >= 0 && coord.Col >= 0 && coord.Row < grid.Length && coord.Col < grid[0].Length;
     }
 
     public static int ManhattanDistance(this GridCoordinate source, GridCoordinate target)
